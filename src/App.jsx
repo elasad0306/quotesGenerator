@@ -16,7 +16,7 @@ function App() {
   const fetchQuote = async () =>{
     try {
       setIsLoading(true);
-      const response = await fetch(`http://api.quotable.io/random?tags=${tags}`)
+      const response = await fetch(`https://api.quotable.io/random?tags=${tags}`)
 
       if(!response.ok){
         throw new Error("Erreur serveur")
