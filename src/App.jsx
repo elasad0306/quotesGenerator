@@ -16,7 +16,7 @@ function App() {
   const fetchQuote = async () =>{
     try {
       setIsLoading(true);
-      const response = await fetch(`http://api.quotable.io/random?tags=${tags}`)
+      const response = await fetch(`https://dummyjson.com/quotes/random`)
 
       if(!response.ok){
         throw new Error("Erreur serveur")
@@ -25,7 +25,7 @@ function App() {
       const data = await response.json()
 
       setQuote({
-        text: data.content,
+        text: data.quote,
         author: data.author
       })
     } catch(error){
@@ -43,15 +43,15 @@ function App() {
   return (
     <div className='flex flex-col justify-center align-center gap-4'>
       <h1 className='text-white text-center text-4xl'>Quote generator</h1>
-      <input
+      {/* <input
       type='text'
       onChange={(e) => setTags(e.target.value)}
       value={tags}
       className='block w-full bg-gray-50 border border-gray-300 text-gray-900  px-2 rounded-lg focus:border-sky-500 focus:outline-3 focus:outline-sky-500'
-      />
+      /> */}
       {isLoading && <p>Loading...</p>}
       <div 
-      className='block bg-neutral-100 w-100 rounded text-center h-auto flex flex-col justify-center p-2'
+      className='bg-neutral-100 w-100 rounded text-center h-auto flex flex-col justify-center p-2 '
       >
         <blockquote>{quote.text}</blockquote>
         
